@@ -170,6 +170,10 @@ h1 {
   overflow: auto;
 }
 
+.overflow-scroll {
+  overflow: scroll;
+}
+
 .p-0 {
   padding: 0px;
 }
@@ -275,9 +279,17 @@ h1 {
   left: 0px;
 }
 
+.left-1 {
+  left: 0.25rem;
+}
+
 .text-black {
   --opacity-text: 1;
   color: rgba(0, 0, 0, var(--opacity-text));
+}
+
+.font-normal {
+  font-size: 1rem;
 }
 
 .font-semibold {
