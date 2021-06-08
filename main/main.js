@@ -46,6 +46,25 @@ for(let snippet of snippets){
     figure.appendChild(img)
 }
 
+
+function masonry(grid, gridCell, gridGutter, dGridCol, tGridCol, mGridCol) {
+  var g = document.getElementById(grid),
+    gc = document.querySelectorAll(gridCell),
+    gcLength = gc.length,
+    gHeight = 0,
+    i;
+
+  for (i = 0; i < gcLength; ++i) {
+    gHeight += gc[i].offsetHeight + parseInt(gridGutter);
+  }
+
+  if (window.screen.width >= 1024)
+    g.style.height = gHeight / dGridCol + gHeight / (gcLength + 1) + 100 + "px";
+  else if (window.screen.width < 1024 && window.screen.width >= 768)
+    g.style.height = gHeight / tGridCol + gHeight / (gcLength + 1) + "px";
+  else g.style.height = gHeight / mGridCol + gHeight / (gcLength + 1) + "px";
+}
+
 let jssnippet = document.querySelectorAll('.snippet-js')
 filter.addEventListener("click", event => {
     if (event.target.tagName !== "BUTTON") {
@@ -64,23 +83,6 @@ filter.addEventListener("click", event => {
     masonry("snippetsjs", ".snippet-js", 0, 2, 2, 1);
   });
 
-  function masonry(grid, gridCell, gridGutter, dGridCol, tGridCol, mGridCol) {
-    var g = document.getElementById(grid),
-      gc = document.querySelectorAll(gridCell),
-      gcLength = gc.length,
-      gHeight = 0,
-      i;
-  
-    for (i = 0; i < gcLength; ++i) {
-      gHeight += gc[i].offsetHeight + parseInt(gridGutter);
-    }
-  
-    if (window.screen.width >= 1024)
-      g.style.height = gHeight / dGridCol + gHeight / (gcLength + 1) + 100 + "px";
-    else if (window.screen.width < 1024 && window.screen.width >= 768)
-      g.style.height = gHeight / tGridCol + gHeight / (gcLength + 1) + "px";
-    else g.style.height = gHeight / mGridCol + gHeight / (gcLength + 1) + "px";
-  }
 
 let snipp_s = document.querySelectorAll('.snippet-js')
 for (let snippet of snipp_s){
@@ -127,8 +129,8 @@ preview.addEventListener('drop',(evt)=>{
     evt.preventDefault()
     current = evt.target
 
-    isCorrect = block !== current && current === preview
-
+    isCorrect = (block !== current && current === preview) || current.parentElement.classList.contains('buildet')
+    console.log(current.parentElement)
     console.log(isCorrect)
     if(!isCorrect){
         return;
@@ -139,14 +141,18 @@ preview.addEventListener('drop',(evt)=>{
     block.classList.remove('p-2')
     block.classList.add('p-0')
     block.classList.add('buildet')
-    block.innerHTML+=`<div class='js-delete-btn bg-white hidden absolute top-0 left-0 border-1 border-solid border-gray-400 px-4 py-2 shadow shadow-lg'>
-    <i>Удалить</i>
+    block.innerHTML+=`<div class='js-delete-btn bg-white hidden absolute top-0 left-1 border-1 border-solid border-gray-400 px-4 py-2 shadow shadow-lg'>
+    <i class="far fa-trash-alt"></iс>
     </div>`;
     block.classList.add('relative')
-    if(current.classList.contains('buildet')){
-        preview.inserBefore(evt.target)
-    }
+    block.childNodes[0].classList.remove('border-1:hover')
+    block.childNodes[0].classList.remove('border-solid:hover')
+    block.childNodes[0].classList.remove('border-black:hover')
     block.hidden = false
+    if(current.classList.contains('buildet')){
+        preview.insertBefore(block.cloneNode(true),evt.target.parentElement)
+        return
+      }
     preview.appendChild(block.cloneNode(true))
    
 })
@@ -173,9 +179,20 @@ buttonGenerateCSS.addEventListener('click',(evt)=>{
     URL.revokeObjectURL(link.href);
 })
 
-  window.addEventListener('load', (evt)=>{
-        masonry("snippetsjs", ".snippet-js", 0, 2, 2, 1);
-  })
-  window.addEventListener('resize', (evt)=>{
-        masonry("snippetsjs", ".snippet-js", 0, 2, 2, 1);
-  })
+
+document.addEventListener("click", function (evt) {
+  if (evt.target.classList.contains('js-delete-btn')) {
+      preview.removeChild(evt.target.parentElement);
+  }
+  else if (evt.target.parentElement.classList.contains('js-delete-btn')){
+      preview.removeChild(evt.target.parentElement.parentElement)
+  }
+});
+
+window.addEventListener('load', (evt)=>{
+      masonry("snippetsjs", ".snippet-js", 0, 2, 2, 1);
+})
+window.addEventListener('resize', (evt)=>{
+      masonry("snippetsjs", ".snippet-js", 0, 2, 2, 1);
+})
+
