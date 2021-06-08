@@ -41,7 +41,7 @@ for(let snippet of snippets){
     
     figure.classList.add(`snippet-js`)
     figure.classList.add(snippet.class)
-    img.src = `../images/${snippet.image}`
+    img.src = `/images/${snippet.image}`
     snippetsjs.appendChild(figure)
     figure.appendChild(img)
 }
