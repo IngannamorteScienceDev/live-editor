@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -15,90 +15,82 @@
         background-color: transparent;
         cursor: pointer;
       }
-
-      
       #preview > .snippet-js:hover > .js-delete-btn {
         display: block;
-      }
-      
+      }  
     </style>
-</head>
-<body>
-    
-    
-        <div id="preview" class="fixed text-center left-0 top-0 bottom-0 overflow-scroll flex-none w-1/3 h-full bg-red-300">
-            <header class="mb-4">
-                <button id="generateCSS"
-                  class="shadow text-center font-semibold py-3 px-4 bg-gray-200 w-4/5 text-black m-2"
-                >
-                  Сгенерировать HTML
-                </button>
-              </header>
-        </div>
-        <div class="fixed overflow-auto top-0 right-0 bottom-0 h-full w-2/3 p-8 bg-white">
-          <h1 class="font-heavy mb-8 ml-2 pb-2">
-            <a href="/" class="no-underline text-black no-underline text-black">
-              <img src="./images/log.png" class="inline-block mr-2 w-10 -mb-2">micro.css Web Builder</a>
-          </h1>
-          <div class="border-solid border-0 border-l-2 mx-2 mb-3 js-filter pl-3 border-black">
-            <!-- General -->
-            <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1  filter-button" data-filter="snippet-js">
-              Все
-            </button>
-            <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="navigation">
-              Навигация
-            </button>
-            <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="footer">
-              Футер
-            </button>
-            <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="form">
-              Формы
-            </button>
-            <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="list">
-              Списки
-            </button>
-            <!-- Marketing -->
-            <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="hero">
-              Hero
-            </button>
-            <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="feature">
-              Особенности
-            </button>
-            <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="pricing">
-              Цены
-            </button>
-            <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="article">
-              Статьи
-            </button>
-            <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="cta">
-              Призыв к действию
-            </button>
-            <!-- Application -->
-            <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="progress">
-              Шкала прогресса
-            </button>
-            <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="feed">
-              Комментарии
-            </button>
-            <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="notification">
-              Уведомления
-            </button>
-            <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="stats">
-              Статистика
-            </button>
-            <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="cards">
-              Карточки
-            </button>
-            <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="tabs">
-              Вкладки
-            </button>
-          </div>
-            <div id="snippetsjs" class="flex flex-wrap flex-row justify-flex-start items-flex-start h-full">
-                
-            </div>
-        </div>
-        
+  </head>
+  <body>
+    <div id="preview" class="fixed text-center left-0 top-0 bottom-0 overflow-y-scroll flex-none w-1/3 h-full bg-red-300">
+      <header class="mb-4">
+        <button id="generateCSS"
+          class="shadow text-center font-semibold py-3 px-4 bg-gray-200 w-4/5 text-black m-2"
+        >
+          Сгенерировать HTML
+        </button>
+      </header>
+    </div>
+    <div class="fixed overflow-auto top-0 right-0 bottom-0 h-full w-2/3 p-8 bg-white">
+      <h1 class="font-heavy mb-8 ml-2 pb-2">
+        <a href="/" class="no-underline text-black no-underline text-black">
+          <img src="./images/log.png" class="inline-block mr-2 w-10 -mb-2">micro.css Web Builder
+        </a>
+      </h1>
+      <div class="border-solid border-0 border-l-2 mx-2 mb-3 js-filter pl-3 border-black">
+        <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1  filter-button" data-filter="snippet-js">
+          Все
+        </button>
+        <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="navigation">
+          Навигация
+        </button>
+        <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="footer">
+          Футер
+        </button>
+        <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="form">
+          Формы
+        </button>
+        <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="list">
+          Списки
+        </button>
+        <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="hero">
+          Hero
+        </button>
+        <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="features">
+          Возможности
+        </button>
+        <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="pricing">
+          Цены
+        </button>
+        <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="article">
+          Статьи
+        </button>
+        <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="cta">
+          Призыв к действию
+        </button>
+        <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="progress">
+          Шкала прогресса
+        </button>
+        <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="feed">
+          Комментарии
+        </button>
+        <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="notification">
+          Уведомления
+        </button>
+        <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="stats">
+          Статистика
+        </button>
+        <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="cards">
+          Карточки
+        </button>
+        <button class="text-black font-normal font-semibold text-red-400:hover px-2 py-1 filter-button" data-filter="tabs">
+          Вкладки
+        </button>
+      </div>
+      <div id="snippetsjs" class="flex flex-wrap flex-row justify-flex-start items-flex-start h-full">
+          
+      </div>
+    </div>
     <script src="main/snippets.js"></script>
     <script src="main/main.js"></script>
-</body>
+  </body>
 </html>

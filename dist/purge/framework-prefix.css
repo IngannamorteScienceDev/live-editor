@@ -137,10 +137,6 @@ h1 {
   margin: 0.5rem;
 }
 
-.m-auto {
-  margin: auto;
-}
-
 .mx-2 {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
@@ -170,8 +166,8 @@ h1 {
   overflow: auto;
 }
 
-.overflow-scroll {
-  overflow: scroll;
+.overflow-y-scroll {
+  overflow-y: scroll;
 }
 
 .p-0 {
